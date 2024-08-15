@@ -4,16 +4,19 @@ namespace Player
 {
     public class PlayerMove : MonoBehaviour
     {
+        [SerializeField] private int reqDirection = 8; // Variable For Test
+        [SerializeField] private float moveSpeed = 750;
+        
         private int _direction = 8;
-        [SerializeField] private int reqDirection = 8;
-        private Rigidbody2D _rb2D;
-        public float moveSpeed;
-        public static string _dir;
+        public static string Dir;
+        
+        private Rigidbody2D _rb;
+
         private void Start()
         {
-            moveSpeed = 1;
-            _rb2D = GetComponent<Rigidbody2D>();
+            _rb = GetComponent<Rigidbody2D>();
         }
+        
         private void Update()
         {
             /*
@@ -26,28 +29,27 @@ namespace Player
 
         private void Move()
         {
-            Debug.Log(_direction);
             switch (_direction)
             {
                 case 0:
                     // UP
-                    _rb2D.velocity = new Vector2(0f, moveSpeed);
-                    _dir = "up";
+                    Dir = "up";
+                    _rb.velocity = new Vector2(0f, moveSpeed * Time.deltaTime);
                     break;
                 case 1:
                     // UP-RIGHT
                     break;
                 case 2:
                     // RIGHT
-                    _dir = "right";
-                    _rb2D.velocity = new Vector2(moveSpeed, 0f);
+                    Dir = "right";
+                    _rb.velocity = new Vector2(moveSpeed * Time.deltaTime, 0f);
                     break;
                 case 3:
                     // DOWN-RIGHT
                     break;
                 case 4:
-                    _dir = "down";
-                    _rb2D.velocity = new Vector2(0f, -1*moveSpeed);
+                    Dir = "down";
+                    _rb.velocity = new Vector2(0f, -moveSpeed * Time.deltaTime);
                     // DOWN
                     break;
                 case 5:
@@ -55,16 +57,16 @@ namespace Player
                     break;
                 case 6:
                     // LEFT
-                    _dir = "left";
-                    _rb2D.velocity = new Vector2(-1*moveSpeed, 0f);
+                    Dir = "left";
+                    _rb.velocity = new Vector2(-moveSpeed * Time.deltaTime, 0f);
                     break;
                 case 7:
                     // UP_LEFT
                     break;
                 case 8:
                     // STAY
-                    _dir = "stay";
-                    _rb2D.velocity = new Vector2(0f, 0f);
+                    Dir = "stay";
+                    _rb.velocity = new Vector2(0f, 0f);
                     break;
             }
         }

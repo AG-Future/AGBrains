@@ -5616,7 +5616,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reqDirection: 8
-  moveSpeed: 0
+  moveSpeed: 750
 --- !u!61 &1294273375
 BoxCollider2D:
   m_ObjectHideFlags: 0
