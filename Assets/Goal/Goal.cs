@@ -1,23 +1,20 @@
+using Player;
 using UnityEngine;
 
 namespace Goal
 {
     public class Goal : MonoBehaviour
     {
-        private GameObject _player;
-        private Vector2 _playerPos;
-        void Start()
+        private Transform _player;
+
+        private void Start()
         {
-            _player = GameObject.FindWithTag("Player");
+            _player = FindObjectOfType<PlayerMove>().transform;
         }
-        
-        void Update()
+
+        private void Update()
         {
-            _playerPos = _player.transform.position;
-            if (Vector2.Distance(gameObject.transform.position, _playerPos) < 0.1f)
-            {
-                Debug.Log("!");
-            }
+            if (Vector2.Distance(transform.position, _player.position) < 0.1f) Debug.Log("Reach the Goal!");
         }
     }
 }
