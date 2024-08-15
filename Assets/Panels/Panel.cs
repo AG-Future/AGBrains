@@ -1,4 +1,4 @@
-using System.Collections;
+
 using Player;
 using TMPro;
 using UnityEngine;
@@ -8,9 +8,14 @@ namespace Panels
     {
         private TextMeshPro _text;
         private string _moveDir;
+        private string _currentMove;
         private Animator _panelAni;
+        private bool _isChange;
+        private static readonly int Change = Animator.StringToHash("change");
+
         void Start()
         {
+            _isChange = false;
             _text = gameObject.transform.GetChild(0).gameObject.GetComponent<TextMeshPro>();
             _panelAni = GetComponent<Animator>();
         }
@@ -22,29 +27,35 @@ namespace Panels
             switch (_moveDir)
             {
                 case "up":
-                    _text.text = _moveDir;
-                    StopCoroutine("PanelUpdate");
-                    StartCoroutine("PanelUpdate");
+                    SetCon();
                     break;
                 case "down":
-                    _text.text = _moveDir;
+                    SetCon();
                     break;
                 case "left":
-                    _text.text = _moveDir;
+                    SetCon();
                     break;
                 case "right":
-                    _text.text = _moveDir;
+                    SetCon();
                     break;
                 case "stay":
-                    _text.text = _moveDir;
+                    SetCon();
                     break;
             }
+
+            if (!_moveDir.Equals(_currentMove)) _isChange = false;
+            _currentMove = _moveDir;
         }
 
-        IEnumerable PanelUpdate()
+        private void SetCon()
         {
-            _panelAni.SetTrigger("change");
-            yield return new WaitForSeconds(0.5f);
+            if (!_isChange)
+            {
+                _isChange = true;
+                _panelAni.SetTrigger(Change);
+            }
+            _text.text = _moveDir;
         }
+        
     }
 }
