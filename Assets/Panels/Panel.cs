@@ -10,8 +10,8 @@ namespace Panels
         private Animator _panelAni;
         
         private string _currentDir;
-
-        private static readonly int Change = Animator.StringToHash("change");
+        
+        private static readonly int InstantExit = Animator.StringToHash("InstantExit");
 
         private void Start()
         {
@@ -28,7 +28,7 @@ namespace Panels
         {
             _currentDir = moveDir;
             _text.text = moveDir;
-            _panelAni.SetTrigger(Change);
+            _panelAni.SetTrigger(InstantExit);
         }
     }
 }
