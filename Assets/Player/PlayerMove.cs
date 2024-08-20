@@ -14,6 +14,7 @@ namespace Player
         private void Start()
         {
             _rb = GetComponent<Rigidbody2D>();
+            AudioManager.AudioManager.Instance.SetAsBGM("Sounds/sol1");
         }
         
         private void Update()

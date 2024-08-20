@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace AudioManager
@@ -5,27 +6,36 @@ namespace AudioManager
     public class AudioManager : MonoBehaviour
     {
         public static string SoundKind;
-        public static bool Play;
 
         private AudioSource _audioSource;
-        private void Start()
+
+        private static readonly Dictionary<string, AudioClip> Clips = new();
+
+        public static AudioManager Instance;
+        private void Awake()
         {
-            SoundKind = "None";
-            Play = false;
+            Instance = this;
             _audioSource = GetComponent<AudioSource>();
         }
-        private void Update()
+        
+        public void Play(string path)
         {
-            var coin = Resources.Load<AudioClip>("Sounds/Insert Coin");
-            if (!Play) return;
-            switch(SoundKind)
-            {
-                case "Coin":
-                    _audioSource.PlayOneShot(coin);
-                    SoundKind = "None";
-                    Play = false;
-                    break;
-            }
+            _audioSource.PlayOneShot(GetClip(path));
+        }
+
+        public void SetAsBGM(string path)
+        {
+            _audioSource.clip = GetClip((path));
+            _audioSource.loop = true;
+            _audioSource.Play();
+        }
+
+        private static AudioClip GetClip(string path)
+        {
+            if (Clips.TryGetValue(path, out var clip)) return clip;
+            clip = Resources.Load<AudioClip>(path);
+            if (!clip) return null;
+            return Clips[path] = clip;
         }
     }
 }
