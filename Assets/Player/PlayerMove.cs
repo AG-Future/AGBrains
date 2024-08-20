@@ -4,8 +4,7 @@ namespace Player
 {
     public class PlayerMove : MonoBehaviour
     {
-        [SerializeField] private int reqDirection = 8; // Variable For Test
-        [SerializeField] private float moveSpeed = 750;
+        [SerializeField] private float moveSpeed = 500;
         
         private int _direction = 8;
         public static string Dir;
@@ -19,11 +18,7 @@ namespace Player
         
         private void Update()
         {
-            /*
-            new Networking.Post<Void>("/set-direction", null).AddParam("direction", reqDirection + "").Build();
-            new Networking.Get<DirectionResponses>("/get-direction").OnResponse(dr => _direction = dr.direction).OnError((_) => _direction = 8).Build();
-            */
-            _direction = reqDirection;
+            new Networking.Get<DirectionResponses>("/get-direction").OnResponse(dr => _direction = dr.direction).OnError(_ => _direction = 8).Build();
             Move();
         }
 

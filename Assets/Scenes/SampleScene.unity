@@ -5332,7 +5332,7 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -6116,7 +6116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reqDirection: 8
-  moveSpeed: 750
+  moveSpeed: 500
 --- !u!61 &1294273375
 BoxCollider2D:
   m_ObjectHideFlags: 0
