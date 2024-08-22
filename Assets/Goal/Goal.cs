@@ -9,7 +9,7 @@ namespace Goal
 
         private void Start()
         {
-            _player = FindObjectOfType<PlayerMove>().transform;
+            _player = GameObject.FindWithTag("Player").transform;
         }
 
         private void Update()
