@@ -1,27 +1,12 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 public class ObstacleTrigger : MonoBehaviour
 {
     public GameObject obstacle;
     public GameObject player;
-    
-    void Start()
-    {
-        
-    }
 
-    void Update()
-    {
-
-    }
-    
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Obstacle")){ Debug.Log("Player Detected"); }
+        if (other.CompareTag("Obstacle")) Debug.Log("Player Detected"); //여기 변경해서 게임오버 화면이든지 처음으로 돌아가게 만들면 됨
     }
 }
