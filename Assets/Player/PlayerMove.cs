@@ -6,11 +6,13 @@ namespace Player
 {
     public class PlayerMove : MonoBehaviour
     {
+
+        
         //키보드로 테스트 할때 사용할려고 만든 키보드 이동수단입니다.
         public float speed;
 
         private Vector2 moveVelocity;
-        //추후 불필요시 전체 주석 또는 삭제처리 부탁 드립니다.ㄴ
+        //추후 불필요시 전체 주석 또는 삭제처리 부탁 드립니다.
         
         [SerializeField] private float moveSpeed = 500;
         
