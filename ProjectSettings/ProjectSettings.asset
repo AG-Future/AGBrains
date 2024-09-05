@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
-  productName: FutureEducation_With_Team_A
+  companyName: AGFuture
+  productName: AGBrains
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -722,14 +722,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: FutureEducation_With_Team_A
+  metroPackageName: AGBrains
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: FutureEducation_With_Team_A
+  metroApplicationDescription: AGBrains
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -801,7 +801,7 @@ PlayerSettings:
   cloudProjectId: 0d6b2946-0c0b-486f-ba6d-3447330a83d6
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: FutureEducation_With_Team_A
+  projectName: AGBrains
   organizationId: seunghun9080-dsm-hs-kr
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
