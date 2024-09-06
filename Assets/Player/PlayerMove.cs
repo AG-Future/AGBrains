@@ -20,6 +20,23 @@ namespace Player
         private void Update()
         {
             new Networking.Get<DirectionResponses>("/get-direction").OnResponse(dr => _direction = dr.direction).OnError(_ => _direction = 8).Build();
+            if (Input.GetKey(KeyCode.A))
+            {
+                _direction = 6;
+            }
+            else if (Input.GetKey(KeyCode.D))
+            {
+                _direction = 2;
+            } 
+            else if (Input.GetKey(KeyCode.W))
+            {
+                _direction = 0;
+            }
+            else if (Input.GetKey(KeyCode.S))
+            {
+                _direction = 4;
+            }
+
             Move();
         }
 
