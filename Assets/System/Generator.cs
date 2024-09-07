@@ -5,10 +5,12 @@ namespace System
     public class Generator : MonoBehaviour
     {
         protected Vector2 generatePos;
-        protected int spwanCount;
+        [SerializeField]protected int startValue;
+        [SerializeField]protected int spwanCount;
+        [SerializeField] protected Camera spwanCamera;
+        [SerializeField] protected Vector3 spwanAngle;
         protected int xPos;
         protected int yPos;
-        protected int startValue;
         public GameObject preFab;
         private void Start()
         {
@@ -17,18 +19,19 @@ namespace System
 
         private void Update()
         {
-        
+            
         }
 
         public void Spawn(GameObject preFabType)
         {
             for (; startValue <= spwanCount; startValue++)
-            {
-               xPos = UnityEngine.Random.Range(-6,6);
-               yPos = UnityEngine.Random.Range(-6,6);
-               generatePos = new Vector2(xPos, yPos);
-               Debug.Log(preFabType);
-               Check(preFabType);
+            { 
+                var orthographicSize = spwanCamera.orthographicSize; 
+                xPos = UnityEngine.Random.Range((int)orthographicSize*-1,(int)orthographicSize);
+                yPos = UnityEngine.Random.Range((int)orthographicSize*-1,(int)orthographicSize);
+                generatePos = new Vector2(xPos, yPos);
+                Debug.Log(preFabType);
+                Check(preFabType);
                
             }
         }
@@ -44,7 +47,7 @@ namespace System
                     Debug.Log(preFabType);
                     GenerateList.generateList.Add(generatePos);
                     Debug.Log(GenerateList.generateList);
-                    Instantiate(preFabType, generatePos, Quaternion.identity);
+                    Instantiate(preFabType, generatePos, Quaternion.Euler(spwanAngle));
                 }
                 
         }
