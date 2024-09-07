@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace System
@@ -9,43 +8,45 @@ namespace System
         protected int spwanCount;
         protected int xPos;
         protected int yPos;
-        protected bool interactingWithSomebody;
         protected int startValue;
-        [SerializeField] protected GameObject gameObject;
-        // Start is called before the first frame update
-        void Start()
+        public GameObject preFab;
+        private void Start()
         {
             
         }
 
-        // Update is called once per frame
-        void Update()
+        private void Update()
         {
         
         }
 
         public void Spawn(GameObject preFabType)
         {
-            for (startValue = 1; startValue <= spwanCount; startValue++)
+            for (; startValue <= spwanCount; startValue++)
             {
-               xPos = UnityEngine.Random.Range(0, Screen.width);
-               yPos = UnityEngine.Random.Range(0, Screen.height);
-               Check();
+               xPos = UnityEngine.Random.Range(-6,6);
+               yPos = UnityEngine.Random.Range(-6,6);
+               generatePos = new Vector2(xPos, yPos);
+               Debug.Log(preFabType);
+               Check(preFabType);
                
             }
         }
-        protected void Check()
+        public void Check(GameObject preFabType)
         {
-            if (GenerateList.generateList.Contains(new Vector2(xPos,yPos)))
-            {
-                startValue--;
-            }
-            else
-            {
-                Instantiate(gameObject, new Vector2(xPos, yPos), Quaternion.identity);
-            }
-            
-            
+                if (GenerateList.generateList.Contains(generatePos))
+                {
+                    Debug.Log(preFabType);
+                    startValue--;
+                }
+                else
+                {
+                    Debug.Log(preFabType);
+                    GenerateList.generateList.Add(generatePos);
+                    Debug.Log(GenerateList.generateList);
+                    Instantiate(preFabType, generatePos, Quaternion.identity);
+                }
+                
         }
     }
 }

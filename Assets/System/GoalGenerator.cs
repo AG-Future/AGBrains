@@ -1,18 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class GoalGenerator : MonoBehaviour
+namespace System
 {
-    // Start is called before the first frame update
-    void Start()
+    public class GoalGenerator : Generator
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private void Start()
+        {
+            generatePos = new Vector2(0, 0);
+            startValue = 1;
+            spwanCount = 4;
+            Spawn(preFab);
+        }
+    
     }
 }
