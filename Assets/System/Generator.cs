@@ -5,9 +5,13 @@ namespace System
     public class Generator : MonoBehaviour
     {
         protected Vector2 generatePos;
+        [Header("초기값 설정")]
         [SerializeField]protected int startValue;
         [SerializeField]protected int spwanCount;
-        [SerializeField] protected Camera spwanCamera;
+        [Header("생성 범위 설정")]
+        [SerializeField] protected Vector2 maxSpwanRange;
+        [SerializeField] protected Vector2 minSpwanRange;
+        [Header("생성 각도 설정")]
         [SerializeField] protected Vector3 spwanAngle;
         protected int xPos;
         protected int yPos;
@@ -26,9 +30,9 @@ namespace System
         {
             for (; startValue <= spwanCount; startValue++)
             { 
-                var orthographicSize = spwanCamera.orthographicSize; 
-                xPos = UnityEngine.Random.Range((int)orthographicSize*-1,(int)orthographicSize);
-                yPos = UnityEngine.Random.Range((int)orthographicSize*-1,(int)orthographicSize);
+                //var orthographicSize = spwanCamera.orthographicSize; 
+                xPos = UnityEngine.Random.Range((int)minSpwanRange.x,(int)maxSpwanRange.x);
+                yPos = UnityEngine.Random.Range((int)minSpwanRange.y,(int)maxSpwanRange.y);
                 generatePos = new Vector2(xPos, yPos);
                 Debug.Log(preFabType);
                 Check(preFabType);
