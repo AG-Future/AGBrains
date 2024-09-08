@@ -7,7 +7,9 @@ namespace Map.TileMap.TileMapScripts
     {
         [Header("위치를 저장할 타일맵")]
         [SerializeField] private Tilemap tilemap;
-        private void Start()
+
+        public static bool wallCheck;
+        private void Awake()
         {
             foreach(Vector3Int pos in tilemap.cellBounds.allPositionsWithin)
             {
@@ -18,6 +20,7 @@ namespace Map.TileMap.TileMapScripts
                     for (var j = -1; j <= 1; j++)
                     {
                         vec2Pos = new Vector2(pos.x + i, pos.y + j);
+                        Debug.Log(vec2Pos);
                         GenerateList.generateList.Add(vec2Pos);
                     }
 
