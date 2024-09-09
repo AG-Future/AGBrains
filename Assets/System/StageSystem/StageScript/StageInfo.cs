@@ -14,8 +14,6 @@ namespace System.StageSystem.StageScript
         public string StageName;
         [Header("현재 씬의 목표점수")]
         public int TotalPoint;
-        [Header("현재 씬의 목표이동수")]
-        public int TotalMoves;
     }
 }
 
