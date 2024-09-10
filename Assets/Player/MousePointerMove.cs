@@ -1,3 +1,4 @@
+using System.StageSystem.StageScript;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -22,10 +23,10 @@ namespace Player
                 switch (_interactingWith)
                 {
                     case "newgame":
-                        SceneManager.LoadScene("Stage1");
+                        FindObjectOfType<StageManager>().StageSet();
                         break;
                     case "loadgame":
-                        Debug.Log(_interactingWith);
+                        FindObjectOfType<StageManager>().StageLoad();
                         break;
                     case "quitgame":
                         Application.Quit();
