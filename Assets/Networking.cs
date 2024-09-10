@@ -72,20 +72,17 @@ public class Networking : MonoBehaviour
 
         private IEnumerator _Request(string url)
         {
-            Debug.Log($"Sending Request to {url}");
             using var webRequest = WebRequest(url);
             webRequest.timeout = 15;
             foreach (var (key, value) in _headers)
                 webRequest.SetRequestHeader(key, value);
             yield return webRequest.SendWebRequest();
             
-            Debug.Log($"ResponseCode: {webRequest.responseCode}");
             webRequest.downloadHandler ??= new DownloadHandlerBuffer();
             var bodyText = webRequest.downloadHandler.text;
             if (webRequest.result == UnityWebRequest.Result.Success)
                 if (webRequest.responseCode is >= 200 and <= 299)
                 {
-                    Debug.Log($"Response for {url}: {webRequest.responseCode}");
                     if (typeof(T) == typeof(void))
                         _responseAction?.Invoke(null);
                     else if (typeof(T) == typeof(string))
@@ -96,7 +93,6 @@ public class Networking : MonoBehaviour
 
                     yield break;
                 }
-            Debug.Log($"Error Handled: {bodyText}");
             _errorAction?.Invoke(JsonUtility.FromJson<ErrorBody>(bodyText));
         }
 
