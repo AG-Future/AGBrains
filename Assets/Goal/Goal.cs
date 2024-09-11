@@ -7,10 +7,12 @@ namespace Goal
     public class Goal : MonoBehaviour
     {
         private Transform _player;
+        private SpriteRenderer _spriteRenderer;
 
         private void Start()
         {
             _player = GameObject.FindWithTag("Player").transform;
+            _spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
         private void Update()
@@ -20,7 +22,7 @@ namespace Goal
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (FindObjectOfType<StageManager>().currentPoint <= 0)
+            if (FindObjectOfType<StageManager>().currentPoint <= 0&&other.CompareTag("Player"))
             {
                 FindObjectOfType<StageManager>().NextStage();
             }

@@ -10,7 +10,7 @@ namespace Obstacle
 
         private void Update()
         {
-            transform.Rotate(new Vector3(0f,0f,2f));
+            transform.Rotate(new Vector3(0f,0f,0.8f));
         }
         
     }

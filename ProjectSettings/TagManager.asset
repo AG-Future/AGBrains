@@ -8,6 +8,7 @@ TagManager:
   - newgame
   - loadgame
   - quitgame
+  - goal
   layers:
   - Default
   - TransparentFX
