@@ -5546,7 +5546,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e7caa6f917c98940b8bfdb65f6179ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinText: {fileID: 0}
 --- !u!1 &743638562
 GameObject:
   m_ObjectHideFlags: 0
@@ -7105,9 +7104,13 @@ Tilemap:
   m_TileAssetArray:
   - m_RefCount: 100
     m_Data: {fileID: 11400000, guid: 8e64de4ea5b48114c899f8ed10c9b40f, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileSpriteArray:
   - m_RefCount: 100
     m_Data: {fileID: 928746067, guid: 01d01434eb888fe4da06cf1019d93915, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileMatrixArray:
   - m_RefCount: 100
     m_Data:
@@ -7130,6 +7133,10 @@ Tilemap:
   m_TileColorArray:
   - m_RefCount: 100
     m_Data: {r: 1, g: 1, b: 1, a: 1}
+  - m_RefCount: 0
+    m_Data: {r: 4.7877e-41, g: 4.7877e-41, b: 4.7877e-41, a: 4.7877e-41}
+  - m_RefCount: 0
+    m_Data: {r: 4.7877e-41, g: 4.7877e-41, b: 4.7877e-41, a: 4.7877e-41}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}

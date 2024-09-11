@@ -20,7 +20,6 @@ namespace Map.TileMap.TileMapScripts
                     for (var j = -1; j <= 1; j++)
                     {
                         vec2Pos = new Vector2(pos.x + i, pos.y + j);
-                        Debug.Log(vec2Pos);
                         GenerateList.generateList.Add(vec2Pos);
                     }
 

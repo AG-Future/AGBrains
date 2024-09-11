@@ -37,7 +37,6 @@ namespace Player
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log(1);
             if (other.CompareTag("newgame"))
             {
                 _interactingWith = "newgame";

@@ -34,7 +34,6 @@ namespace System
                 xPos = UnityEngine.Random.Range((int)minSpwanRange.x,(int)maxSpwanRange.x);
                 yPos = UnityEngine.Random.Range((int)minSpwanRange.y,(int)maxSpwanRange.y);
                 generatePos = new Vector2(xPos, yPos);
-                Debug.Log(preFabType);
                 Check(preFabType);
                
             }
@@ -43,7 +42,6 @@ namespace System
         {
                 if (GenerateList.generateList.Contains(generatePos))
                 {
-                    Debug.Log(preFabType);
                     startValue--;
                 }
                 else

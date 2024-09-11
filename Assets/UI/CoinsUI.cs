@@ -19,12 +19,13 @@ namespace UI
 
         private void AddPoint()
         {
-            
+            Debug.Log("AddPt");
             _coinText.text = "Coin X"+(FindObjectOfType<StageManager>().currentPoint-1);
             FindObjectOfType<StageManager>().currentPoint--;
             if (FindObjectOfType<StageManager>().currentPoint <= 0)
             {
                 _coinText.text = "Goto Object";
+                Coins.CoinConsume -= AddPoint;
             }
         }
     }
