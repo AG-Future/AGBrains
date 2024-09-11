@@ -283,6 +283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startValue: 1
   spwanCount: 5
+  dependingStage: 1
   maxSpwanRange: {x: 9, y: 5}
   minSpwanRange: {x: -9, y: -5}
   spwanAngle: {x: 0, y: 0, z: -45}
@@ -393,6 +394,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startValue: 1
   spwanCount: 1
+  dependingStage: 0
   maxSpwanRange: {x: 8, y: 4}
   minSpwanRange: {x: -8, y: -4}
   spwanAngle: {x: 0, y: 0, z: -45}
@@ -7236,6 +7238,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startValue: 1
   spwanCount: 1
+  dependingStage: 0
   maxSpwanRange: {x: 8, y: 4}
   minSpwanRange: {x: -8, y: -4}
   spwanAngle: {x: 0, y: 0, z: -45}
