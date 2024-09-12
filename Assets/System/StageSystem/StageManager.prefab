@@ -48,5 +48,7 @@ MonoBehaviour:
   - {fileID: 458384740736157466, guid: ab99de7c0439c934fa34521d9bde391c, type: 3}
   - {fileID: 8978990008067097048, guid: 3a20481c13f855944889094b62caa331, type: 3}
   - {fileID: 7870235673847545606, guid: b2e47a7c8833a13419acf90b2cc6389e, type: 3}
+  - {fileID: 7870235673847545606, guid: 16748634c8b3c814baf0c43a02d0d627, type: 3}
   currentPoint: 0
-  currentMove: 0
+  currnetStageTag: 0
+  currentStageInfo: {fileID: 0}

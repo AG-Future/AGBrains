@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8156472337965055596}
   - component: {fileID: 7870235673847545606}
   m_Layer: 0
-  m_Name: Stage2Info
+  m_Name: Stage3Info
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsNonPlayable: 0
-  StageNumber: 2
-  StageTag: 2
-  StageName: "\uB2F4 \uB118\uAE30"
-  TotalPoint: 4
+  StageNumber: 3
+  StageTag: 3
+  StageName: "\uC7A5\uC560\uBB3C\uB4E4\uC744 \uD53C\uD574\uBCF4\uC790"
+  TotalPoint: 10

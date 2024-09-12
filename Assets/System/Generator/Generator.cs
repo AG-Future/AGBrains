@@ -1,3 +1,4 @@
+using System.StageSystem.StageScript;
 using UnityEngine;
 
 namespace System
@@ -8,6 +9,8 @@ namespace System
         [Header("초기값 설정")]
         [SerializeField]protected int startValue;
         [SerializeField]protected int spwanCount;
+        [Header("해당 스테이지 값만큼 생성")] [SerializeField]
+        protected bool dependingStage;
         [Header("생성 범위 설정")]
         [SerializeField] protected Vector2 maxSpwanRange;
         [SerializeField] protected Vector2 minSpwanRange;
@@ -28,13 +31,16 @@ namespace System
 
         public void Spawn(GameObject preFabType)
         {
+            if (dependingStage)
+            {
+                spwanCount = FindObjectOfType<StageManager>().currentStageInfo.TotalPoint;
+            }
             for (; startValue <= spwanCount; startValue++)
             { 
                 //var orthographicSize = spwanCamera.orthographicSize; 
                 xPos = UnityEngine.Random.Range((int)minSpwanRange.x,(int)maxSpwanRange.x);
                 yPos = UnityEngine.Random.Range((int)minSpwanRange.y,(int)maxSpwanRange.y);
                 generatePos = new Vector2(xPos, yPos);
-                Debug.Log(preFabType);
                 Check(preFabType);
                
             }
@@ -43,14 +49,13 @@ namespace System
         {
                 if (GenerateList.generateList.Contains(generatePos))
                 {
-                    Debug.Log(preFabType);
                     startValue--;
                 }
                 else
                 {
-                    Debug.Log(preFabType);
+//                    Debug.Log(preFabType);
                     GenerateList.generateList.Add(generatePos);
-                    Debug.Log(GenerateList.generateList);
+//                    Debug.Log(GenerateList.generateList);
                     Instantiate(preFabType, generatePos, Quaternion.Euler(spwanAngle));
                 }
                 
