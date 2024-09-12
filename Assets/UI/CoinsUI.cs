@@ -1,3 +1,4 @@
+using System;
 using System.StageSystem.StageScript;
 using CoinsAndAugments;
 using TMPro;
@@ -8,6 +9,7 @@ namespace UI
     public class CoinsUI : MonoBehaviour
     {
         private TextMeshProUGUI _coinText;
+        public static Action CanEnterGoal;
         private void Start()
         {
             Coins.CoinConsume += AddPoint;
@@ -22,6 +24,7 @@ namespace UI
             FindObjectOfType<StageManager>().currentPoint--;
             if (FindObjectOfType<StageManager>().currentPoint <= 0)
             {
+                CanEnterGoal?.Invoke();
                 _coinText.text = "Goto Object";
                 Coins.CoinConsume -= AddPoint;
             }
