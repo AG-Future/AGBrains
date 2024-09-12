@@ -53,9 +53,9 @@ namespace System
                 }
                 else
                 {
-                    Debug.Log(preFabType);
+//                    Debug.Log(preFabType);
                     GenerateList.generateList.Add(generatePos);
-                    Debug.Log(GenerateList.generateList);
+//                    Debug.Log(GenerateList.generateList);
                     Instantiate(preFabType, generatePos, Quaternion.Euler(spwanAngle));
                 }
                 
