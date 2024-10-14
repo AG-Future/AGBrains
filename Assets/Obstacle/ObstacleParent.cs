@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Obstacle
@@ -9,13 +8,6 @@ namespace Obstacle
         [SerializeField] protected bool isTrigger;
         [Header("콜라이더 설정")] 
         [SerializeField] protected Collider2D collider2D;
-        private void Start()
-        {
-        }
-        private void Update()
-        {
-        
-        }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
