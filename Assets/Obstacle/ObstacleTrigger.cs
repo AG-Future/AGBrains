@@ -7,7 +7,10 @@ namespace Obstacle
     {
         private GameObject _player;
 
-        private void Start() => _player = GameObject.FindWithTag("Player");
+        private void Start()
+        {
+            _player = GameObject.FindWithTag("Player");
+        }
 
         private void OnTriggerEnter2D(Collider2D other)
         {

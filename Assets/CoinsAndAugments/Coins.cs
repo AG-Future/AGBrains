@@ -12,7 +12,6 @@ namespace CoinsAndAugments
             CoinConsume?.Invoke();
             AudioManager.AudioManager.Instance.Play("Sounds/Insert Coin");
             Destroy(gameObject);
-
         }
     }
 }
