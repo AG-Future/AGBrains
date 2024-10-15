@@ -11,10 +11,12 @@ namespace Goal
         private float changeTime;
         //private Transform _player;
         private SpriteRenderer _spriteRenderer;
+        private StageManager _stageManager;
 
         private void Start()
         {
-            CoinsUI.CanEnterGoal += ChageColor;
+            _stageManager = FindObjectOfType<StageManager>();
+            CoinsUI.CanEnterGoal += ChangeColor;
             //_player = GameObject.FindWithTag("Player").transform;
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _spriteRenderer.color = Color.gray;
@@ -27,26 +29,23 @@ namespace Goal
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (FindObjectOfType<StageManager>().currentPoint <= 0&&other.CompareTag("Player"))
-            {
-                CoinsUI.CanEnterGoal -= ChageColor;
-                FindObjectOfType<StageManager>().NextStage();
-            }
+            if (_stageManager.currentPoint > 0 || !other.CompareTag("Player")) return;
+            CoinsUI.CanEnterGoal -= ChangeColor;
+            _stageManager.NextStage();
         }
 
-        private void ChageColor()
+        private void ChangeColor()
         {
-            StartCoroutine(ColorChageFlow());
+            StartCoroutine(ColorChangeFlow());
         }
 
-        private IEnumerator ColorChageFlow()
+        private IEnumerator ColorChangeFlow()
         {
             for (float i = 0; i <= changeTime; i += Time.deltaTime)
             {
                 _spriteRenderer.color = Color.Lerp(_spriteRenderer.color, Color.green, 2f*Time.deltaTime);
                 yield return null;
             }
-
         }
     }
 }

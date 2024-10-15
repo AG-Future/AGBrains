@@ -1,64 +1,52 @@
 using System.StageSystem.StageScript;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-namespace System
+namespace System.Generator
 {
     public class Generator : MonoBehaviour
     {
-        protected Vector2 generatePos;
+        protected Vector2 GeneratePos;
         [Header("초기값 설정")]
-        [SerializeField]protected int startValue;
-        [SerializeField]protected int spwanCount;
+        [SerializeField] protected int startValue;
+        [FormerlySerializedAs("spwanCount")] [SerializeField] protected int spawnCount;
         [Header("해당 스테이지 값만큼 생성")] [SerializeField]
         protected bool dependingStage;
         [Header("생성 범위 설정")]
-        [SerializeField] protected Vector2 maxSpwanRange;
-        [SerializeField] protected Vector2 minSpwanRange;
+        [FormerlySerializedAs("maxSpwanRange")] [SerializeField] protected Vector2 maxSpawnRange;
+        [FormerlySerializedAs("minSpwanRange")] [SerializeField] protected Vector2 minSpawnRange;
         [Header("생성 각도 설정")]
-        [SerializeField] protected Vector3 spwanAngle;
-        protected int xPos;
-        protected int yPos;
+        [FormerlySerializedAs("spwanAngle")] [SerializeField] protected Vector3 spawnAngle;
+        private int _xPos;
+        private int _yPos;
         public GameObject preFab;
-        private void Start()
-        {
-            
-        }
 
-        private void Update()
-        {
-            
-        }
-
-        public void Spawn(GameObject preFabType)
+        protected void Spawn(GameObject preFabType)
         {
             if (dependingStage)
             {
-                spwanCount = FindObjectOfType<StageManager>().currentStageInfo.TotalPoint;
+                spawnCount = FindObjectOfType<StageManager>().currentStageInfo.totalPoint;
             }
-            for (; startValue <= spwanCount; startValue++)
+            for (; startValue <= spawnCount; startValue++)
             { 
-                //var orthographicSize = spwanCamera.orthographicSize; 
-                xPos = UnityEngine.Random.Range((int)minSpwanRange.x,(int)maxSpwanRange.x);
-                yPos = UnityEngine.Random.Range((int)minSpwanRange.y,(int)maxSpwanRange.y);
-                generatePos = new Vector2(xPos, yPos);
+                //var orthographicSize = spawnCamera.orthographicSize; 
+                _xPos = UnityEngine.Random.Range((int)minSpawnRange.x,(int)maxSpawnRange.x);
+                _yPos = UnityEngine.Random.Range((int)minSpawnRange.y,(int)maxSpawnRange.y);
+                GeneratePos = new Vector2(_xPos, _yPos);
                 Check(preFabType);
                
             }
         }
-        public void Check(GameObject preFabType)
+
+        private void Check(GameObject preFabType)
         {
-                if (GenerateList.generateList.Contains(generatePos))
-                {
-                    startValue--;
-                }
-                else
-                {
-//                    Debug.Log(preFabType);
-                    GenerateList.generateList.Add(generatePos);
-//                    Debug.Log(GenerateList.generateList);
-                    Instantiate(preFabType, generatePos, Quaternion.Euler(spwanAngle));
-                }
-                
+            if (!GenerateList.GeneratesList.Add(GeneratePos)) startValue--;
+            else
+            {
+//              Debug.Log(preFabType);
+//              Debug.Log(GenerateList.generateList);
+                Instantiate(preFabType, GeneratePos, Quaternion.Euler(spawnAngle));
+            }
         }
     }
 }

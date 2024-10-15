@@ -1,5 +1,6 @@
 using UnityEngine;
-namespace Obstacle
+
+namespace Obstacle.Suriken
 {
     public class Suriken : ObstacleParent
     {
@@ -12,7 +13,6 @@ namespace Obstacle
         {
             transform.Rotate(new Vector3(0f,0f,0.8f));
         }
-        
     }
 }
 

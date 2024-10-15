@@ -7,40 +7,34 @@ namespace System.StageSystem.StageScript
     {
         [Header("각 스테이지 정보")]
         public StageInfo[] stageInfos;
-        [Header("현재 스텡이지 점수")]
+        [Header("현재 스테이지 점수")]
         public int currentPoint;
-        public int currnetStageTag;
+        public int currentStageTag;
         public StageInfo currentStageInfo;
+        
         private void Start()
         {
             currentStageInfo = stageInfos[0];
             DontDestroyOnLoad(gameObject);
         }
-        private void Update()
-        {
-        
-        }
 
         public void StageLoad()
         {
-            currnetStageTag = PlayerPrefs.GetInt("stage");
-            currentStageInfo = stageInfos[currnetStageTag];
-            SceneManager.LoadScene(currentStageInfo.StageTag);
-            currentPoint = currentStageInfo.TotalPoint;
+            currentStageTag = PlayerPrefs.GetInt("stage");
+            currentStageInfo = stageInfos[currentStageTag];
+            SceneManager.LoadScene(currentStageInfo.stageTag);
+            currentPoint = currentStageInfo.totalPoint;
         }
 
         public void StageSet()
         {
-            PlayerPrefs.SetInt("stage",1);
-            currnetStageTag = PlayerPrefs.GetInt("stage");
-            currentStageInfo = stageInfos[currnetStageTag];
-            SceneManager.LoadScene(currentStageInfo.StageTag);
-            currentPoint = currentStageInfo.TotalPoint;
+            PlayerPrefs.SetInt("stage", 1);
+            StageLoad();
         }
 
         public void NextStage()
         {
-            PlayerPrefs.SetInt("stage",currnetStageTag+1);
+            PlayerPrefs.SetInt("stage", ++currentStageTag);
             StageLoad();
         }
     }

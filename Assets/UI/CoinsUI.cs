@@ -24,12 +24,10 @@ namespace UI
         {
             _coinText.text = "Coin X"+(FindObjectOfType<StageManager>().currentPoint-1);
             FindObjectOfType<StageManager>().currentPoint--;
-            if (FindObjectOfType<StageManager>().currentPoint <= 0)
-            {
-                CanEnterGoal?.Invoke();
-                _coinText.text = "Goto Object";
-                Coins.CoinConsume -= AddPoint;
-            }
+            if (FindObjectOfType<StageManager>().currentPoint > 0) return;
+            CanEnterGoal?.Invoke();
+            _coinText.text = "Goto Object";
+            Coins.CoinConsume -= AddPoint;
         }
 
 
