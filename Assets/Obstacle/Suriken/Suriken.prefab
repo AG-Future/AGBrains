@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTrigger: 1
-  collider2D: {fileID: 4448027973715310960}
+  localCollider2D: {fileID: 4448027973715310960}
 --- !u!60 &4448027973715310960
 PolygonCollider2D:
   m_ObjectHideFlags: 0

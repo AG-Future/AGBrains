@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Obstacle
 {
@@ -7,7 +8,7 @@ namespace Obstacle
         [Header("닿을 때 데미지를 주는가")]
         [SerializeField] protected bool isTrigger;
         [Header("콜라이더 설정")] 
-        [SerializeField] protected Collider2D collider2D;
+        [SerializeField] protected Collider2D localCollider2D;
 
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -19,7 +20,7 @@ namespace Obstacle
 
         protected void SetCollider2D()
         {
-            collider2D.isTrigger = isTrigger;
+            localCollider2D.isTrigger = isTrigger;
         }
     }
 }

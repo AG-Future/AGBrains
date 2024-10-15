@@ -4,7 +4,7 @@ namespace Player
 {
     public class PlayerMove : MonoBehaviour
     {
-        [SerializeField] private float moveSpeed = 500;
+        public static float moveSpeed = 500;
         
         private int _direction = 8;
         public static string Dir;

@@ -1,6 +1,8 @@
 using System;
+using System.Collections;
 using System.StageSystem.StageScript;
 using CoinsAndAugments;
+using Player;
 using TMPro;
 using UnityEngine;
 
@@ -27,5 +29,7 @@ namespace UI
             _coinText.text = "Goto Object";
             Coins.CoinConsume -= AddPoint;
         }
+
+
     }
 }

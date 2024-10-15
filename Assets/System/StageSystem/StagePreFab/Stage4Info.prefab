@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4204063120489116773
+--- !u!1 &2699219790474304174
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1397154493955516986}
-  - component: {fileID: 1798363744932031723}
+  - component: {fileID: 8156472337965055596}
+  - component: {fileID: 7870235673847545606}
   m_Layer: 0
-  m_Name: StageManager
+  m_Name: Stage4Info
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1397154493955516986
+--- !u!4 &8156472337965055596
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4204063120489116773}
+  m_GameObject: {fileID: 2699219790474304174}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.4632325, y: -3.5418072, z: -0.012069941}
@@ -32,24 +32,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1798363744932031723
+--- !u!114 &7870235673847545606
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4204063120489116773}
+  m_GameObject: {fileID: 2699219790474304174}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5b947fc8b63b1d4998db9dfe173fd68, type: 3}
+  m_Script: {fileID: 11500000, guid: a9e04c88d27f7b64880f6827b1775904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageInfos:
-  - {fileID: 458384740736157466, guid: ab99de7c0439c934fa34521d9bde391c, type: 3}
-  - {fileID: 8978990008067097048, guid: 3a20481c13f855944889094b62caa331, type: 3}
-  - {fileID: 7870235673847545606, guid: b2e47a7c8833a13419acf90b2cc6389e, type: 3}
-  - {fileID: 7870235673847545606, guid: 16748634c8b3c814baf0c43a02d0d627, type: 3}
-  - {fileID: 7870235673847545606, guid: a250aa58ebe1cb044b0ed4d675dfdb50, type: 3}
-  currentPoint: 0
-  currentStageTag: 0
-  currentStageInfo: {fileID: 0}
+  isNonPlayable: 0
+  stageNumber: 4
+  stageTag: 4
+  stageName: "\uC7A5\uC560\uBB3C\uB4E4\uC744 \uD53C\uD574\uBCF4\uC790"
+  totalPoint: 3

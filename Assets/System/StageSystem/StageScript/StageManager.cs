@@ -1,3 +1,5 @@
+using System.Generator;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -18,8 +20,24 @@ namespace System.StageSystem.StageScript
             DontDestroyOnLoad(gameObject);
         }
 
+        /*private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                SceneManager.LoadScene(5);
+                GenerateList.GeneratesList.Clear();
+            }
+            
+            if (!int.TryParse(Input.inputString, out var i)) return;
+            PlayerPrefs.SetInt("stage", i);
+            Debug.Log($"Key Pressed / cst : {currentStageTag}");
+            StageLoad();
+        }*/
+
         public void StageLoad()
         {
+            Debug.Log(currentStageTag);
+            GenerateList.GeneratesList.Clear();
             currentStageTag = PlayerPrefs.GetInt("stage");
             currentStageInfo = stageInfos[currentStageTag];
             SceneManager.LoadScene(currentStageInfo.stageTag);
@@ -29,6 +47,7 @@ namespace System.StageSystem.StageScript
         public void StageSet()
         {
             PlayerPrefs.SetInt("stage", 1);
+            currentStageTag = 1;
             StageLoad();
         }
 
