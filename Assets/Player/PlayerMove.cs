@@ -19,7 +19,6 @@ namespace Player
         
         private void Update()
         {
-            Debug.Log(moveSpeed);
             new Networking.Get<DirectionResponses>("/get-direction").OnResponse(dr => _direction = dr.direction).OnError(_ => _direction = 8).Build();
             if (Input.GetKey(KeyCode.A))
             {
