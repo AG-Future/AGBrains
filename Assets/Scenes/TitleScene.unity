@@ -5958,6 +5958,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1798363744932031723, guid: 4c22937be7da7e543b39860eebc2e8fc, type: 3}
+      propertyPath: stageInfos.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1798363744932031723, guid: 4c22937be7da7e543b39860eebc2e8fc, type: 3}
+      propertyPath: stageInfos.Array.data[4]
+      value: 
+      objectReference: {fileID: 7870235673847545606, guid: a250aa58ebe1cb044b0ed4d675dfdb50, type: 3}
     - target: {fileID: 4204063120489116773, guid: 4c22937be7da7e543b39860eebc2e8fc, type: 3}
       propertyPath: m_Name
       value: StageManager

@@ -17,7 +17,7 @@ namespace Goal
             CoinsUI.CanEnterGoal += ChageColor;
             //_player = GameObject.FindWithTag("Player").transform;
             _spriteRenderer = GetComponent<SpriteRenderer>();
-            _spriteRenderer.color = Color.red;
+            _spriteRenderer.color = Color.gray;
         }
 
         private void Update()
