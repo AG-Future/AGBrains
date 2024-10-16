@@ -19,7 +19,7 @@ namespace System.StageSystem.StageScript
             currentStageInfo = stageInfos[0];
             DontDestroyOnLoad(gameObject);
         }
-
+        //이거는 나중에 오류테스트할때 쓸거
         /*private void Update()
         {
             if (Input.GetKeyDown(KeyCode.L))

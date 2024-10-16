@@ -23,19 +23,26 @@ namespace System.Generator
 
         protected void Spawn(GameObject preFabType)
         {
+            var timeout = 0f;
             if (dependingStage)
             {
                 spawnCount = FindObjectOfType<StageManager>().currentStageInfo.totalPoint;
             }
             for (; startValue <= spawnCount; startValue++)
-            { 
+            {
+                timeout += Time.deltaTime;
                 //var orthographicSize = spawnCamera.orthographicSize; 
                 _xPos = UnityEngine.Random.Range((int)minSpawnRange.x,(int)maxSpawnRange.x);
                 _yPos = UnityEngine.Random.Range((int)minSpawnRange.y,(int)maxSpawnRange.y);
                 GeneratePos = new Vector2(_xPos, _yPos);
+                Debug.Log(timeout);
                 Check(preFabType);
-               
+                if (!(timeout > 10f)) continue;
+                Debug.LogError("로딩시간이 오래걸립니다.. 다시 실행해보거나 오브젝트 수를 줄여보세요.");
+                break;
             }
+
+
         }
 
         private void Check(GameObject preFabType)
