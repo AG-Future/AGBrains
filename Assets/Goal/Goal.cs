@@ -13,10 +13,11 @@ namespace Goal
         private SpriteRenderer _spriteRenderer;
         private StageManager _stageManager;
         private BoxCollider2D _bCol2D;
-        
+
         
         private void Start()
         {
+
             _bCol2D = GetComponent<BoxCollider2D>();
             _bCol2D.enabled = true;
             _stageManager = FindObjectOfType<StageManager>();
@@ -39,7 +40,11 @@ namespace Goal
             _stageManager.NextStage();
         }
 
-        private void ChangeColor()
+        public void Minus()
+        {
+            CoinsUI.CanEnterGoal -= ChangeColor;
+        }
+        public void ChangeColor()
         {
             StartCoroutine(ColorChangeFlow());
         }

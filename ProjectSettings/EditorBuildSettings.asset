@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/New Scene.unity
     guid: e8f3b5cc6634ac6408a900418014d034
+  - enabled: 1
+    path: Assets/Scenes/YouDie.unity
+    guid: e92ddc9cb6670c44187a7fc96e007104
   m_configObjects: {}

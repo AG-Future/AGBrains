@@ -9,6 +9,7 @@ TagManager:
   - loadgame
   - quitgame
   - goal
+  - stageManager
   layers:
   - Default
   - TransparentFX
