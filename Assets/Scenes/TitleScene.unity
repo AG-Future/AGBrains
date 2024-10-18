@@ -5944,6 +5944,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 770440396}
   m_CullTransparentMesh: 1
+--- !u!114 &881213834 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8492015492473763394, guid: 4c22937be7da7e543b39860eebc2e8fc, type: 3}
+  m_PrefabInstance: {fileID: 1006094365}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &884350573
 GameObject:
   m_ObjectHideFlags: 0
@@ -6100,33 +6111,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1798363744932031723, guid: 4c22937be7da7e543b39860eebc2e8fc, type: 3}
-      propertyPath: stageInfos.Array.size
-      value: 5
+      propertyPath: fadeImg
+      value: 
+      objectReference: {fileID: 881213834}
+    - target: {fileID: 1798363744932031723, guid: 4c22937be7da7e543b39860eebc2e8fc, type: 3}
+      propertyPath: fadeSpeed
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1798363744932031723, guid: 4c22937be7da7e543b39860eebc2e8fc, type: 3}
-      propertyPath: stageInfos.Array.data[4]
-      value: 
-      objectReference: {fileID: 7870235673847545606, guid: a250aa58ebe1cb044b0ed4d675dfdb50, type: 3}
-    - target: {fileID: 1798363744932031723, guid: 4c22937be7da7e543b39860eebc2e8fc, type: 3}
-      propertyPath: stageInfos.Array.data[5]
-      value: 
-      objectReference: {fileID: 7870235673847545606, guid: a250aa58ebe1cb044b0ed4d675dfdb50, type: 3}
-    - target: {fileID: 1798363744932031723, guid: 4c22937be7da7e543b39860eebc2e8fc, type: 3}
-      propertyPath: stageInfos.Array.data[6]
-      value: 
-      objectReference: {fileID: 7870235673847545606, guid: a250aa58ebe1cb044b0ed4d675dfdb50, type: 3}
-    - target: {fileID: 1798363744932031723, guid: 4c22937be7da7e543b39860eebc2e8fc, type: 3}
-      propertyPath: stageInfos.Array.data[7]
-      value: 
-      objectReference: {fileID: 7870235673847545606, guid: a250aa58ebe1cb044b0ed4d675dfdb50, type: 3}
-    - target: {fileID: 1798363744932031723, guid: 4c22937be7da7e543b39860eebc2e8fc, type: 3}
-      propertyPath: stageInfos.Array.data[8]
-      value: 
-      objectReference: {fileID: 7870235673847545606, guid: a250aa58ebe1cb044b0ed4d675dfdb50, type: 3}
-    - target: {fileID: 1798363744932031723, guid: 4c22937be7da7e543b39860eebc2e8fc, type: 3}
-      propertyPath: stageInfos.Array.data[9]
-      value: 
-      objectReference: {fileID: 7870235673847545606, guid: a250aa58ebe1cb044b0ed4d675dfdb50, type: 3}
     - target: {fileID: 4204063120489116773, guid: 4c22937be7da7e543b39860eebc2e8fc, type: 3}
       propertyPath: m_Name
       value: StageManager
@@ -7116,6 +7107,7 @@ SpriteRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1006094365}
   - {fileID: 455259485}
   - {fileID: 474730458}
   - {fileID: 277138599}
@@ -7124,5 +7116,4 @@ SceneRoots:
   - {fileID: 3635749188854641593}
   - {fileID: 213133619}
   - {fileID: 702542994}
-  - {fileID: 1006094365}
   - {fileID: 472072110}

@@ -12,9 +12,13 @@ namespace Goal
         //private Transform _player;
         private SpriteRenderer _spriteRenderer;
         private StageManager _stageManager;
-
+        private BoxCollider2D _bCol2D;
+        
+        
         private void Start()
         {
+            _bCol2D = GetComponent<BoxCollider2D>();
+            _bCol2D.enabled = true;
             _stageManager = FindObjectOfType<StageManager>();
             CoinsUI.CanEnterGoal += ChangeColor;
             //_player = GameObject.FindWithTag("Player").transform;
@@ -31,6 +35,7 @@ namespace Goal
         {
             if (_stageManager.currentPoint > 0 || !other.CompareTag("Player")) return;
             CoinsUI.CanEnterGoal -= ChangeColor;
+            _bCol2D.enabled = false;
             _stageManager.NextStage();
         }
 
