@@ -20,7 +20,12 @@ namespace UI
             
         }
 
-        private void AddPoint()
+        public void Minus()
+        {
+            Coins.CoinConsume -= AddPoint;
+        }
+
+        public void AddPoint()
         {
             _coinText.text = "Coin X"+(FindObjectOfType<StageManager>().currentPoint-1);
             FindObjectOfType<StageManager>().currentPoint--;

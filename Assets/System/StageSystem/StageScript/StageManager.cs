@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using System.Generator;
 using System.Net.Mime;
 using UnityEditor.SceneManagement;
@@ -20,10 +21,15 @@ namespace System.StageSystem.StageScript
         public Color fade;
         public RawImage fadeImg;
         [SerializeField] private float fadeSpeed;
-
+        private GameObject[] _doublecheck;
         
         private void Start()
         {
+            _doublecheck = GameObject.FindGameObjectsWithTag("stageManager");
+            if (_doublecheck.Length > 1)
+            {
+                Destroy(gameObject);
+            }
             currentStageInfo = stageInfos[0];
             DontDestroyOnLoad(gameObject);
             fadeImg.color = fade = new Color(0, 0, 0, 0);
@@ -58,6 +64,16 @@ namespace System.StageSystem.StageScript
             StartCoroutine(FadeInFlow());
         }
 
+        public void ToMain()
+        {
+            SceneManager.LoadScene(0);
+        }
+
+        public void GameOver()
+        {
+            StartCoroutine(GameOverFlow());
+        }
+
         public void NextStage()
         {
             PlayerPrefs.SetInt("stage", ++currentStageTag);
@@ -77,6 +93,21 @@ namespace System.StageSystem.StageScript
 
             yield return null;
             StageLoad();
+
+        }
+        private IEnumerator GameOverFlow()
+        {
+            var alpha = 0f;
+            fadeImg.color = fade = new Color(0, 0, 0, alpha);
+            while (alpha < 1)
+            {
+                alpha+=Time.deltaTime*fadeSpeed;
+                fadeImg.color = fade = new Color(0, 0, 0, alpha);
+                yield return null;
+            }
+
+            yield return null;
+            SceneManager.LoadScene(6);
 
         }
 
