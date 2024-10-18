@@ -6,7 +6,7 @@ namespace Obstacle.Suriken
     {
         private void Start()
         {
-            SetCollider2D();
+            SetObstacle();
         }
 
         private void Update()
