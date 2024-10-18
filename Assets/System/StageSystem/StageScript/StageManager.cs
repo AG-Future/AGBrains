@@ -34,7 +34,7 @@ namespace System.StageSystem.StageScript
             DontDestroyOnLoad(gameObject);
             fadeImg.color = fade = new Color(0, 0, 0, 0);
         }
-
+        //이거는 나중에 오류테스트할때 쓸거
         /*private void Update()
         {
             if (Input.GetKeyDown(KeyCode.L))

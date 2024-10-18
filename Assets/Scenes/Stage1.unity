@@ -282,11 +282,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startValue: 1
-  spwanCount: 5
+  spawnCount: 5
   dependingStage: 1
-  maxSpwanRange: {x: 9, y: 5}
-  minSpwanRange: {x: -9, y: -5}
-  spwanAngle: {x: 0, y: 0, z: -45}
+  maxSpawnRange: {x: 9, y: 5}
+  minSpawnRange: {x: -9, y: -5}
+  spawnAngle: {x: 0, y: 0, z: -45}
   preFab: {fileID: 3350317093032552311, guid: 6493aa4a2cdd3644294d4524ed00aa1f, type: 3}
 --- !u!4 &132415948
 Transform:
@@ -297,7 +297,7 @@ Transform:
   m_GameObject: {fileID: 132415946}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.78518474, y: -1.3330282, z: -0.08892186}
+  m_LocalPosition: {x: 0, y: -0.01, z: -0.08892186}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -393,11 +393,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startValue: 1
-  spwanCount: 1
+  spawnCount: 1
   dependingStage: 0
-  maxSpwanRange: {x: 8, y: 4}
-  minSpwanRange: {x: -8, y: -4}
-  spwanAngle: {x: 0, y: 0, z: -45}
+  maxSpawnRange: {x: 8, y: 4}
+  minSpawnRange: {x: -8, y: -4}
+  spawnAngle: {x: 0, y: 0, z: -45}
   preFab: {fileID: 8306232912991497782, guid: 208d02b294a182349a0069f1050c75f8, type: 3}
 --- !u!1 &478782579
 GameObject:
@@ -7090,11 +7090,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startValue: 1
-  spwanCount: 1
+  spawnCount: 1
   dependingStage: 0
-  maxSpwanRange: {x: 8, y: 4}
-  minSpwanRange: {x: -8, y: -4}
-  spwanAngle: {x: 0, y: 0, z: -45}
+  maxSpawnRange: {x: 8, y: 4}
+  minSpawnRange: {x: -8, y: -4}
+  spawnAngle: {x: 0, y: 0, z: -45}
   preFab: {fileID: 7138045321005486393, guid: e5b69213af2f5dc4fa46dea37f609d87, type: 3}
 --- !u!4 &1283189100
 Transform:
