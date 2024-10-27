@@ -22,14 +22,18 @@ namespace System.StageSystem.StageScript
         public RawImage fadeImg;
         [SerializeField] private float fadeSpeed;
         private GameObject[] _doublecheck;
-        
-        private void Start()
+
+        private void Awake()
         {
             _doublecheck = GameObject.FindGameObjectsWithTag("stageManager");
             if (_doublecheck.Length > 1)
             {
                 Destroy(gameObject);
             }
+        }
+
+        private void Start()
+        {
             currentStageInfo = stageInfos[0];
             DontDestroyOnLoad(gameObject);
             fadeImg.color = fade = new Color(0, 0, 0, 0);
@@ -61,6 +65,12 @@ namespace System.StageSystem.StageScript
         public void StageSet()
         {
             PlayerPrefs.SetInt("stage", currentStageTag = 1);
+            StartCoroutine(FadeInFlow());
+        }
+
+        public void ReStage()
+        {
+            PlayerPrefs.SetInt("stage", currentStageTag = 0);
             StartCoroutine(FadeInFlow());
         }
 

@@ -20,13 +20,13 @@ namespace CoinsAndAugments
             Debug.Log("speed");
             while (PlayerMove.moveSpeed < 1000)
             {
-                PlayerMove.moveSpeed += 1f;
+                PlayerMove.moveSpeed += 300f;
                 yield return null;
             }
             yield return new WaitForSeconds(2f);
             while (PlayerMove.moveSpeed > 500)
             {
-                PlayerMove.moveSpeed -= 1f;
+                PlayerMove.moveSpeed -= 300f;
                 yield return null;
             }
         }

@@ -29,9 +29,13 @@ namespace Player
                     case "loadgame":
                         _stageManager.StageLoad();
                         break;
+                    case "tomain":
+                        _stageManager.ReStage();
+                        break;
                     case "quitgame":
                         Application.Quit();
                         break;
+                    
                 }
             }
 
