@@ -18,17 +18,10 @@ namespace CoinsAndAugments
         private IEnumerator SpeedUpFlow()
         {
             Debug.Log("speed");
-            while (PlayerMove.moveSpeed < 1000)
-            {
-                PlayerMove.moveSpeed += 300f;
-                yield return null;
-            }
-            yield return new WaitForSeconds(2f);
-            while (PlayerMove.moveSpeed > 500)
-            {
-                PlayerMove.moveSpeed -= 300f;
-                yield return null;
-            }
+            PlayerMove.moveSpeed = 400f;
+            yield return new WaitForSeconds(0.7f); 
+            PlayerMove.moveSpeed = 250f; 
+            yield return null;
         }
         private void IncreaseSpeed()
         {
