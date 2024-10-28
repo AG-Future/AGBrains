@@ -8,6 +8,6 @@ public class IPSet : MonoBehaviour
     public void SetIP()
     {
         if (new Regex(@"^(localhost|(\d{1,3}\.){3}\d{1,3})$").IsMatch(ipSet.text ?? "")) Networking.BaseUrl = $"http://{ipSet.text}:8080";
-        Debug.Log("Now ip set on "+Networking.BaseUrl);
+        Debug.Log("Now ip set on " + Networking.BaseUrl);
     }
 }
