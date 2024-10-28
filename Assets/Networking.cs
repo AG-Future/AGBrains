@@ -8,7 +8,7 @@ using UnityEngine.Networking;
 
 public class Networking : MonoBehaviour
 {
-    private const string BaseUrl = "http://localhost:8080";
+    public static string BaseUrl = "http://localhost:8080";
     private static Networking _networking;
 
     private void Awake()
