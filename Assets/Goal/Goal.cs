@@ -1,5 +1,6 @@
 using System.Collections;
 using System.StageSystem.StageScript;
+using Player;
 using UI;
 using UnityEngine;
 
@@ -35,6 +36,7 @@ namespace Goal
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (_stageManager.currentPoint > 0 || !other.CompareTag("Player")) return;
+            PlayerMove.canMove = false;
             CoinsUI.CanEnterGoal -= ChangeColor;
             _bCol2D.enabled = false;
             _stageManager.NextStage();

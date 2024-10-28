@@ -1,4 +1,5 @@
 using System.StageSystem.StageScript;
+using Player;
 using UI;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -19,6 +20,7 @@ namespace Obstacle
         {
             if (other.CompareTag("Player"))
             {
+                PlayerMove.canMove = false;
                 Debug.Log("YouDie");
                 _coinsUI.Minus();
                 _goal.Minus();
