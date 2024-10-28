@@ -11,11 +11,6 @@ namespace System.StageSystem.StageScript
             _sm = GameObject.FindWithTag("stageManager").gameObject.GetComponent<StageManager>();
         }
 
-        private void Start()
-        {
-            Debug.Log(_sm);
-        }
-
         public void ToMain()
         {
             _sm.ToMain();

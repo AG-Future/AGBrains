@@ -31,9 +31,11 @@ namespace System.StageSystem.StageScript
 
         private void Start()
         {
+            
             currentStageInfo = stageInfos[0];
             DontDestroyOnLoad(gameObject);
             fadeImg.color = fade = new Color(0, 0, 0, 0);
+            fadeImg.gameObject.SetActive(false);
         }
         //이거는 나중에 오류테스트할때 쓸거
         /*private void Update()
@@ -90,6 +92,7 @@ namespace System.StageSystem.StageScript
 
         private IEnumerator FadeInFlow()
         {
+            fadeImg.gameObject.SetActive(true);
             var alpha = 0f;
             fadeImg.color = fade = new Color(0, 0, 0, alpha);
             while (alpha < 1)
@@ -129,6 +132,7 @@ namespace System.StageSystem.StageScript
                 fadeImg.color = fade = new Color(0, 0, 0, alpha);
                 yield return null;
             }
+            fadeImg.gameObject.SetActive(false);
         }
     }
 }
