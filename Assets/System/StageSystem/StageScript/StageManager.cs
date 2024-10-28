@@ -74,6 +74,7 @@ namespace System.StageSystem.StageScript
         public void ToMain()
         {
             SceneManager.LoadScene(0);
+            fadeImg.color = fade = new Color(0, 0, 0, 0);
         }
 
         public void GameOver()
