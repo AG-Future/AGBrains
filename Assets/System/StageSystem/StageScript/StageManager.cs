@@ -1,8 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using System.Generator;
-using System.Net.Mime;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -77,6 +74,7 @@ namespace System.StageSystem.StageScript
         public void ToMain()
         {
             SceneManager.LoadScene(0);
+            fadeImg.color = fade = new Color(0, 0, 0, 0);
         }
 
         public void GameOver()

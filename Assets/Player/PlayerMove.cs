@@ -4,8 +4,8 @@ namespace Player
 {
     public class PlayerMove : MonoBehaviour
     {
-        public static float moveSpeed = 500;
-        
+        public static float moveSpeed = 250;
+        public static bool canMove;
         private int _direction = 8;
         public static string Dir;
         
@@ -13,6 +13,7 @@ namespace Player
 
         private void Start()
         {
+            canMove = true;
             _rb = GetComponent<Rigidbody2D>();
             AudioManager.AudioManager.Instance.SetAsBGM("Sounds/sol1");
         }
@@ -37,7 +38,15 @@ namespace Player
                 _direction = 4;
             }
 
-            Move();
+            if (canMove)
+            {
+                Move();
+            }
+            else
+            {
+                _rb.velocity = new Vector2(0, 0);
+            }
+ 
         }
 
         private void Move()
