@@ -16,4 +16,5 @@ public class ErrorBody
 public class DirectionResponses
 {
     public int direction;
+    public bool isIdling;
 }

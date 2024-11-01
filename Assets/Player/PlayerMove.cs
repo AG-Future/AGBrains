@@ -1,26 +1,40 @@
+using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Player
 {
     public class PlayerMove : MonoBehaviour
     {
-        public static float moveSpeed = 250;
+        public static float moveSpeed = 125;
         public static bool canMove;
         private int _direction = 8;
+        private GameObject _modal;
         public static string Dir;
-        
         private Rigidbody2D _rb;
-
+        private bool _isIdling;
+        private bool _modalShown;
         private void Start()
         {
+            _modalShown = false;
             canMove = true;
             _rb = GetComponent<Rigidbody2D>();
+            _modal = GameObject.FindWithTag("mention");
             AudioManager.AudioManager.Instance.SetAsBGM("Sounds/sol1");
+            _modal.SetActive(false);
         }
-        
         private void Update()
         {
-            new Networking.Get<DirectionResponses>("/get-direction").OnResponse(dr => _direction = dr.direction).OnError(_ => _direction = 8).Build();
+            new Networking.Get<DirectionResponses>("/get-direction?idlingTime=10").OnResponse(dr =>
+            {
+                _direction = dr.direction;
+                _isIdling = dr.isIdling;
+            }).OnError(_ =>
+            {
+                _direction = 8;
+                _isIdling = false;
+            }).Build();
+            
             if (Input.GetKey(KeyCode.A))
             {
                 _direction = 6;
@@ -36,16 +50,19 @@ namespace Player
             else if (Input.GetKey(KeyCode.S))
             {
                 _direction = 4;
+                
             }
-
+            Check();
             if (canMove)
             {
                 Move();
+                
             }
             else
             {
                 _rb.velocity = new Vector2(0, 0);
             }
+            Debug.Log(_isIdling);
  
         }
 
@@ -54,42 +71,41 @@ namespace Player
             switch (_direction)
             {
                 case 0:
-                    // UP
                     Dir = "up";
                     _rb.velocity = new Vector2(0f, moveSpeed * Time.deltaTime);
                     break;
-                case 1:
-                    // UP-RIGHT
-                    break;
                 case 2:
-                    // RIGHT
                     Dir = "right";
                     _rb.velocity = new Vector2(moveSpeed * Time.deltaTime, 0f);
-                    break;
-                case 3:
-                    // DOWN-RIGHT
                     break;
                 case 4:
                     Dir = "down";
                     _rb.velocity = new Vector2(0f, -moveSpeed * Time.deltaTime);
-                    // DOWN
-                    break;
-                case 5:
-                    // DOWN-LEFT
                     break;
                 case 6:
-                    // LEFT
                     Dir = "left";
                     _rb.velocity = new Vector2(-moveSpeed * Time.deltaTime, 0f);
                     break;
-                case 7:
-                    // UP_LEFT
-                    break;
                 case 8:
-                    // STAY
                     Dir = "stay";
                     _rb.velocity = new Vector2(0f, 0f);
                     break;
+            }
+            
+        }
+
+        private void Check()
+        {
+
+            if (_isIdling && !_modalShown)
+            {
+                _modal.SetActive(true);
+                _modalShown = true;
+            }
+            else if(!_isIdling&&_modalShown)
+            {
+                _modal.SetActive(false);
+                _modalShown = false;
             }
         }
     }

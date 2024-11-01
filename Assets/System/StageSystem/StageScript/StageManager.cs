@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Generator;
+using UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -19,6 +20,9 @@ namespace System.StageSystem.StageScript
         public RawImage fadeImg;
         [SerializeField] private float fadeSpeed;
         private GameObject[] _doublecheck;
+        private float _escStack;
+        private CoinsUI _coinsUI;
+        private Goal.Goal _goal;
 
         private void Awake()
         {
@@ -36,6 +40,7 @@ namespace System.StageSystem.StageScript
             DontDestroyOnLoad(gameObject);
             fadeImg.color = fade = new Color(0, 0, 0, 0);
             fadeImg.gameObject.SetActive(false);
+            _escStack = 0;
         }
         //이거는 나중에 오류테스트할때 쓸거
         /*private void Update()
@@ -51,6 +56,30 @@ namespace System.StageSystem.StageScript
             Debug.Log($"Key Pressed / cst : {currentStageTag}");
             StageLoad();
         }*/
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                switch (_escStack)
+                {
+                    case <=0:
+                        _escStack = 1f;
+                        break;
+                    case >1:
+                        break;
+                    case >=0.5f:
+                        if (_coinsUI is not null && _goal is not null)
+                        {
+                            _coinsUI.Minus();
+                            _goal.Minus();
+                        }
+                        _escStack = 0;
+                        SceneManager.LoadScene(0);
+                        break;
+                }
+            }
+            _escStack -= Time.deltaTime;
+        }
 
         public void StageLoad()
         {
@@ -63,8 +92,11 @@ namespace System.StageSystem.StageScript
 
         public void StageSet()
         {
-            PlayerPrefs.SetInt("stage", currentStageTag = 1);
-            StartCoroutine(FadeInFlow());
+            //CoinsUI.count=1;
+            //Goal.Goal.co
+                PlayerPrefs.SetInt("stage", currentStageTag = 1);
+                StartCoroutine(FadeInFlow());
+
         }
 
         public void ReStage()
@@ -121,7 +153,6 @@ namespace System.StageSystem.StageScript
             SceneManager.LoadScene(6);
 
         }
-
         private IEnumerator FadeOutFlow()
         {
             var alpha = 1f;
@@ -132,6 +163,13 @@ namespace System.StageSystem.StageScript
                 fadeImg.color = fade = new Color(0, 0, 0, alpha);
                 yield return null;
             }
+
+            if (SceneManager.GetActiveScene().buildIndex != 5)
+            {
+                _coinsUI = GameObject.FindWithTag("coinsui").gameObject.GetComponent<CoinsUI>();
+                _goal = GameObject.FindWithTag("goal").gameObject.GetComponent<Goal.Goal>();
+            }
+
             fadeImg.gameObject.SetActive(false);
         }
     }

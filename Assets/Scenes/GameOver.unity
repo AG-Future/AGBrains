@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 277138597}
   - component: {fileID: 277138596}
   - component: {fileID: 277138600}
+  - component: {fileID: 277138601}
   m_Layer: 0
   m_Name: MousePointer
   m_TagString: Untagged
@@ -283,6 +284,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &277138601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 277138595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e2052a1e78d6304490e417ffd61baff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &455259482
 GameObject:
   m_ObjectHideFlags: 0

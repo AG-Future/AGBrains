@@ -21,7 +21,7 @@ namespace Player
             {
                 transform.position = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
                 _hit = Physics2D.Raycast(transform.position, Vector2.zero);
-                switch (_hit.collider.tag)
+               switch (_hit.collider.tag)
                 {
                     case "newgame":
                         _stageManager.StageSet();

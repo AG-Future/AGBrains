@@ -11,6 +11,8 @@ TagManager:
   - goal
   - stageManager
   - tomain
+  - coinsui
+  - mention
   layers:
   - Default
   - TransparentFX
