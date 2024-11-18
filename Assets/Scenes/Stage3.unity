@@ -7359,7 +7359,7 @@ MonoBehaviour:
   dependingStage: 0
   maxSpawnRange: {x: 8, y: 4}
   minSpawnRange: {x: -8, y: -4}
-  spawnAngle: {x: 0, y: 0, z: -45}
+  spawnAngle: {x: 0, y: 0, z: 0}
   preFab: {fileID: 7138045321005486393, guid: e5b69213af2f5dc4fa46dea37f609d87, type: 3}
 --- !u!4 &1283189100
 Transform:

@@ -14,6 +14,7 @@ namespace Player
         private Rigidbody2D _rb;
         private bool _isIdling;
         private bool _modalShown;
+        [SerializeField] private GameObject playerSkin;
         private void Start()
         {
             _modalShown = false;
@@ -72,22 +73,27 @@ namespace Player
             {
                 case 0:
                     Dir = "up";
+                    playerSkin.transform.rotation = Quaternion.Euler(0,0,0);
                     _rb.velocity = new Vector2(0f, moveSpeed * Time.deltaTime);
                     break;
                 case 2:
                     Dir = "right";
+                    playerSkin.transform.rotation = Quaternion.Euler(0,0,-90);
                     _rb.velocity = new Vector2(moveSpeed * Time.deltaTime, 0f);
                     break;
                 case 4:
                     Dir = "down";
+                    playerSkin.transform.rotation = Quaternion.Euler(0,0,180);
                     _rb.velocity = new Vector2(0f, -moveSpeed * Time.deltaTime);
                     break;
                 case 6:
                     Dir = "left";
+                    playerSkin.transform.rotation = Quaternion.Euler(0,0,90);
                     _rb.velocity = new Vector2(-moveSpeed * Time.deltaTime, 0f);
                     break;
                 case 8:
                     Dir = "stay";
+                    playerSkin.transform.rotation = Quaternion.Euler(0,0,0);
                     _rb.velocity = new Vector2(0f, 0f);
                     break;
             }
