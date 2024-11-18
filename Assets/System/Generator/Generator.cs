@@ -10,8 +10,8 @@ namespace System.Generator
         [Header("초기값 설정")]
         [SerializeField] protected int startValue;
         [FormerlySerializedAs("spwanCount")] [SerializeField] protected int spawnCount;
-        [Header("해당 스테이지 값만큼 생성")] [SerializeField]
-        protected bool dependingStage;
+        [Header("해당 스테이지 값만큼 생성")]
+        [SerializeField] protected bool dependingStage;
         [Header("생성 범위 설정")]
         [FormerlySerializedAs("maxSpwanRange")] [SerializeField] protected Vector2 maxSpawnRange;
         [FormerlySerializedAs("minSpwanRange")] [SerializeField] protected Vector2 minSpawnRange;
@@ -24,10 +24,7 @@ namespace System.Generator
         protected void Spawn(GameObject preFabType)
         {
             var timeout = 0f;
-            if (dependingStage)
-            {
-                spawnCount = FindObjectOfType<StageManager>().currentStageInfo.totalPoint;
-            }
+            if (dependingStage) spawnCount = FindObjectOfType<StageManager>().currentStageInfo.totalPoint;
             for (; startValue <= spawnCount; startValue++)
             {
                 timeout += Time.deltaTime;
@@ -41,8 +38,6 @@ namespace System.Generator
                 Debug.LogError("로딩시간이 오래걸립니다.. 다시 실행해보거나 오브젝트 수를 줄여보세요.");
                 break;
             }
-
-
         }
 
         private void Check(GameObject preFabType)

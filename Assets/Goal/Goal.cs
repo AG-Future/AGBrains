@@ -14,7 +14,7 @@ namespace Goal
         private SpriteRenderer _spriteRenderer;
         private StageManager _stageManager;
         private BoxCollider2D _bCol2D;
-        public static int count = 0;
+        public static int Count;
         
         private void Start()
         {
@@ -42,7 +42,7 @@ namespace Goal
             if (_stageManager.currentPoint > 0 || !other.CompareTag("Player")) return;
             PlayerMove.canMove = false;
             CoinsUI.CanEnterGoal -= ChangeColor;
-            count--;
+            Count--;
             _bCol2D.enabled = false;
             _stageManager.NextStage();
         }

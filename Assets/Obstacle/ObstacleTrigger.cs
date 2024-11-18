@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// 이 코드는 왜 안썼을까
 namespace Obstacle
 {
     [RequireComponent(typeof(Collider2D))]

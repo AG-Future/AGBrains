@@ -1,23 +1,20 @@
 using System;
-using System.Collections;
 using System.StageSystem.StageScript;
 using CoinsAndAugments;
-using Player;
 using TMPro;
-using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 
 namespace UI
 {
     public class CoinsUI : MonoBehaviour
     {
-        public static int count=0;
+        public static int Count;
         private TextMeshProUGUI _coinText;
         public static Action CanEnterGoal;
+
         private void Start()
         {
-            
-            Coins.CoinConsume += AddPoint;    
+            Coins.CoinConsume += AddPoint;
 
             _coinText = GetComponent<TextMeshProUGUI>();
             _coinText.text = "Coin X" + FindObjectOfType<StageManager>().currentPoint;
@@ -30,15 +27,13 @@ namespace UI
 
         public void AddPoint()
         {
-            _coinText.text = "Coin X"+(FindObjectOfType<StageManager>().currentPoint-1);
-            FindObjectOfType<StageManager>().currentPoint--;
-            if (FindObjectOfType<StageManager>().currentPoint > 0) return;
+            var stageManager = FindObjectOfType<StageManager>();
+            _coinText.text = "Coin X" + --stageManager.currentPoint;
+            if (stageManager.currentPoint > 0) return;
             CanEnterGoal?.Invoke();
             _coinText.text = "Goto Object";
             Coins.CoinConsume -= AddPoint;
-            count--;
+            Count--;
         }
-
-
     }
 }

@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Player
 {
@@ -35,36 +33,14 @@ namespace Player
                 _direction = 8;
                 _isIdling = false;
             }).Build();
-            
-            if (Input.GetKey(KeyCode.A))
-            {
-                _direction = 6;
-            }
-            else if (Input.GetKey(KeyCode.D))
-            {
-                _direction = 2;
-            } 
-            else if (Input.GetKey(KeyCode.W))
-            {
-                _direction = 0;
-            }
-            else if (Input.GetKey(KeyCode.S))
-            {
-                _direction = 4;
-                
-            }
-            Check();
-            if (canMove)
-            {
-                Move();
-                
-            }
-            else
-            {
-                _rb.velocity = new Vector2(0, 0);
-            }
-            Debug.Log(_isIdling);
- 
+
+            if (Input.GetKey(KeyCode.W)) _direction = 0; else
+            if (Input.GetKey(KeyCode.A)) _direction = 6; else
+            if (Input.GetKey(KeyCode.S)) _direction = 4; else 
+            if (Input.GetKey(KeyCode.D)) _direction = 2;
+            ModalCheck();
+            if (canMove) Move();
+            else _rb.velocity = new Vector2(0, 0);
         }
 
         private void Move()
@@ -100,9 +76,8 @@ namespace Player
             
         }
 
-        private void Check()
+        private void ModalCheck()
         {
-
             if (_isIdling && !_modalShown)
             {
                 _modal.SetActive(true);

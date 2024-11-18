@@ -2,8 +2,6 @@ using System.StageSystem.StageScript;
 using Player;
 using UI;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.SceneManagement;
 
 namespace Obstacle
 {
@@ -18,16 +16,13 @@ namespace Obstacle
         protected StageManager _stageManager;
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.CompareTag("Player"))
-            {
-                PlayerMove.canMove = false;
-                Debug.Log("YouDie");
-                _coinsUI.Minus();
-                _goal.Minus();
-                localCollider2D.enabled = false;
-                _stageManager.GameOver();
-                
-            }
+            if (!other.CompareTag("Player")) return;
+            PlayerMove.canMove = false;
+            Debug.Log("YouDie");
+            _coinsUI.Minus();
+            _goal.Minus();
+            localCollider2D.enabled = false;
+            _stageManager.GameOver();
         }
 
         protected void SetObstacle()

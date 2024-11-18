@@ -27,15 +27,11 @@ namespace System.StageSystem.StageScript
         private void Awake()
         {
             _doublecheck = GameObject.FindGameObjectsWithTag("stageManager");
-            if (_doublecheck.Length > 1)
-            {
-                Destroy(gameObject);
-            }
+            if (_doublecheck.Length > 1) Destroy(gameObject);
         }
 
         private void Start()
         {
-            
             currentStageInfo = stageInfos[0];
             DontDestroyOnLoad(gameObject);
             fadeImg.color = fade = new Color(0, 0, 0, 0);
@@ -86,17 +82,16 @@ namespace System.StageSystem.StageScript
             GenerateList.GeneratesList.Clear();
             currentStageTag = PlayerPrefs.GetInt("stage");
             currentStageInfo = stageInfos[currentStageTag];
-            SceneManager.LoadSceneAsync(currentStageInfo.stageTag).completed += a => StartCoroutine(FadeOutFlow());
-            currentPoint = currentStageInfo.totalPoint; 
+            SceneManager.LoadSceneAsync(currentStageInfo.stageTag)!.completed += a => StartCoroutine(FadeOutFlow());
+            currentPoint = currentStageInfo.totalPoint;
         }
 
         public void StageSet()
         {
             //CoinsUI.count=1;
             //Goal.Goal.co
-                PlayerPrefs.SetInt("stage", currentStageTag = 1);
-                StartCoroutine(FadeInFlow());
-
+            PlayerPrefs.SetInt("stage", currentStageTag = 1);
+            StartCoroutine(FadeInFlow());
         }
 
         public void ReStage()
@@ -121,7 +116,7 @@ namespace System.StageSystem.StageScript
             PlayerPrefs.SetInt("stage", ++currentStageTag);
             StartCoroutine(FadeInFlow());
         }
-
+        
         private IEnumerator FadeInFlow()
         {
             fadeImg.gameObject.SetActive(true);
@@ -136,8 +131,8 @@ namespace System.StageSystem.StageScript
 
             yield return null;
             StageLoad();
-
         }
+        
         private IEnumerator GameOverFlow()
         {
             var alpha = 0f;
@@ -151,8 +146,8 @@ namespace System.StageSystem.StageScript
 
             yield return null;
             SceneManager.LoadScene(6);
-
         }
+        
         private IEnumerator FadeOutFlow()
         {
             var alpha = 1f;

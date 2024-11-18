@@ -3,10 +3,9 @@ using UnityEngine;
 
 namespace AudioManager
 {
+    [RequireComponent(typeof(AudioSource))]
     public class AudioManager : MonoBehaviour
     {
-        public static string SoundKind;
-
         private AudioSource _audioSource;
 
         private static readonly Dictionary<string, AudioClip> Clips = new();
@@ -25,7 +24,7 @@ namespace AudioManager
 
         public void SetAsBGM(string path)
         {
-            _audioSource.clip = GetClip((path));
+            _audioSource.clip = GetClip(path);
             _audioSource.loop = true;
             _audioSource.Play();
         }

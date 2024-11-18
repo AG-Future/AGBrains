@@ -17,26 +17,23 @@ namespace Player
 
         private void Update()
         {
-            if (Input.GetMouseButtonDown(0))
+            if (!Input.GetMouseButtonDown(0)) return;
+            transform.position = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            _hit = Physics2D.Raycast(transform.position, Vector2.zero);
+            switch (_hit.collider.tag)
             {
-                transform.position = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
-                _hit = Physics2D.Raycast(transform.position, Vector2.zero);
-               switch (_hit.collider.tag)
-                {
-                    case "newgame":
-                        _stageManager.StageSet();
-                        break;
-                    case "loadgame":
-                        _stageManager.StageLoad();
-                        break;
-                    case "tomain":
-                        _stageManager.ReStage();
-                        break;
-                    case "quitgame":
-                        Application.Quit();
-                        break;
-                    
-                }
+                case "newgame":
+                    _stageManager.StageSet();
+                    break;
+                case "loadgame":
+                    _stageManager.StageLoad();
+                    break;
+                case "tomain":
+                    _stageManager.ReStage();
+                    break;
+                case "quitgame":
+                    Application.Quit();
+                    break;
             }
 
         }
